@@ -2,9 +2,8 @@
 <head>
     <meta charset="utf-8">
     <title>Социальная сеть BookCross для истинных ценителей литературы.</title>
-    {{--{!! HTML::style('../resources/assets/css/main.css') !!}--}}
 
-    <link rel="stylesheet" href="../resources/assets/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
