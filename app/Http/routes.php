@@ -32,6 +32,6 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 Route::controllers([
-    'auth' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
