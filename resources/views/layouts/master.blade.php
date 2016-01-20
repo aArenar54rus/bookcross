@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <title>Социальная сеть BookCross для истинных ценителей литературы.</title>
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="public/css/main.css">
 </head>
 <body>
 

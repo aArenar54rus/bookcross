@@ -1,4 +1,4 @@
 @extends('layouts.master')
-@include('auth.partials.login')
+@include('auth.register')
 @section('content')
 @stop
