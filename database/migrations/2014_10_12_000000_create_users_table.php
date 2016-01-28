@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->string('phone');
-            $table->enum('string', ['male', 'female']);
+            $table->enum('sex', ['male', 'female']);
             $table->boolean('vip');
             $table->integer('karma');
             $table->integer('balance');

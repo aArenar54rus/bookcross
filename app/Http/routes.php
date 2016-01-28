@@ -11,11 +11,7 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-Route::get('/', 'HomeController@Index');
+Route::get('/', 'PagesController@Index');
 
 /*
 |--------------------------------------------------------------------------
@@ -28,16 +24,7 @@ Route::get('/', 'HomeController@Index');
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
-
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-
-    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'PagesController@index');
 });
