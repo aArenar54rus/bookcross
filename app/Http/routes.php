@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'PagesController@Index');
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -23,8 +21,7 @@ Route::get('/', 'PagesController@Index');
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-    Route::get('/', 'PagesController@index');
+    Route::get('/', 'PagesController@Index');
 });

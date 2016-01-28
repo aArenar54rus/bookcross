@@ -16,8 +16,10 @@
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
                         {!! csrf_field() !!}
-                        <input type="text" name="email"/>
                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <input type="text" name="email" class="form-control"/>
+                            </div>
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-envelope"></i>Send Password Reset Link
