@@ -24,4 +24,5 @@
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/', 'PagesController@Index');
+    Route::resource('posts', 'PostsController');
 });
