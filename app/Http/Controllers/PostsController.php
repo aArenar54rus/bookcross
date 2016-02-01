@@ -11,6 +11,13 @@ use App\Http\Controllers\Controller;
 
 class PostsController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['except' => [
+            'index',
+            'show',
+        ]]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,6 +55,8 @@ class PostsController extends Controller
         $post->author_id = Auth::user()->id;
 
         $post->save();
+
+        return view('posts.index');
     }
 
     /**
@@ -58,7 +67,13 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Insertion::find($id);
+        if ($post) {
+            return view('posts.show', ['post' => $post]);
+        }
+        else {
+            return 'No such post';
+        }
     }
 
     /**
