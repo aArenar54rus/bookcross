@@ -122,6 +122,14 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Insertion::find($id);
+
+        if ($post->author_id == Auth::user()->id) {
+            $post->delete();
+            return redirect()->action('PostsController@index');
+        }
+        else {
+            return view('errors.503');
+        }
     }
 }
