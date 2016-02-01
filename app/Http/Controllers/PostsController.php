@@ -56,7 +56,7 @@ class PostsController extends Controller
 
         $post->save();
 
-        return view('posts.index');
+        return redirect()->action('PostsController@index');
     }
 
     /**
@@ -68,6 +68,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Insertion::find($id);
+
         if ($post) {
             return view('posts.show', ['post' => $post]);
         }
@@ -84,7 +85,14 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Insertion::find($id);
+
+        if ($post->author_id == Auth::user()->id) {
+            return view('posts.edit', ['post' => $post]);
+        }
+        else {
+            return view('errors.503');
+        }
     }
 
     /**
@@ -96,7 +104,14 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Insertion::find($id);
+
+        $post->title = $request->title;
+        $post->description = $request->description;
+
+        $post->save();
+
+        return redirect()->action('PostsController@show', [$post->id]);
     }
 
     /**

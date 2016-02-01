@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    {!! Form::open(array('action' => 'PostsController@store', 'method' => 'post', 'class' => 'form-horizontal' )) !!}
+
+ {!! Form::open(array('action' => ['PostsController@update', $post->id], 'method' => 'put', 'class' => 'form-horizontal' )) !!}
 
         {!! Form::label('title', 'Your insertion title', array('class' => 'col-md-4 control-label')); !!}
 
         <div class="col-md-6">
-            {!! Form::text('title', '', array('class' => 'form-control')) !!}
+            {!! Form::text('title', $post->title, array('class' => 'form-control')) !!}
         </div>
 
         {!! Form::label('description', 'Your insertion description', array('class' => 'col-md-4 control-label')); !!}
 
         <div class="col-md-6">
-            {!! Form::text('description', '', array('class' => 'form-control')) !!}
+            {!! Form::text('description', $post->description, array('class' => 'form-control')) !!}
         </div>
 
         <div class="form-group">
@@ -22,4 +23,5 @@
         </div>
 
     {!! Form::close() !!}
+
 @endsection
