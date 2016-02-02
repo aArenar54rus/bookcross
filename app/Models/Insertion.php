@@ -26,4 +26,17 @@ class Insertion extends Model
     protected $fillable = [
         'title', 'description',
     ];
+
+    /**
+     * Get the comments for the insertion.
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    public function author()
+    {
+        return $this->belongsTo('App\User','author_id');
+    }
 }

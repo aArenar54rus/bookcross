@@ -2,7 +2,7 @@
 
 @section('content')
 
- {!! Form::open(array('action' => ['PostsController@update', $post->id], 'method' => 'put', 'class' => 'form-horizontal' )) !!}
+ {!! Form::open(array('action' => ['Insertions\PostsController@update', $post->id], 'method' => 'put', 'class' => 'form-horizontal' )) !!}
 
         {!! Form::label('title', 'Your insertion title', array('class' => 'col-md-4 control-label')); !!}
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {!! Form::open(array('action' => 'PostsController@store', 'method' => 'post', 'class' => 'form-horizontal' )) !!}
+    {!! Form::open(array('action' => 'Insertions\PostsController@store', 'method' => 'post', 'class' => 'form-horizontal' )) !!}
 
         {!! Form::label('title', 'Your insertion title', array('class' => 'col-md-4 control-label')); !!}
 

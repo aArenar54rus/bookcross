@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Insertions;
 
 use Illuminate\Http\Request;
 
@@ -56,7 +56,7 @@ class PostsController extends Controller
 
         $post->save();
 
-        return redirect()->action('PostsController@index');
+        return redirect()->action('Insertions\PostsController@index');
     }
 
     /**
@@ -111,7 +111,7 @@ class PostsController extends Controller
 
         $post->save();
 
-        return redirect()->action('PostsController@show', [$post->id]);
+        return redirect()->action('Insertions\PostsController@show', [$post->id]);
     }
 
     /**
@@ -126,7 +126,7 @@ class PostsController extends Controller
 
         if ($post->author_id == Auth::user()->id) {
             $post->delete();
-            return redirect()->action('PostsController@index');
+            return redirect()->action('Insertions\PostsController@index');
         }
         else {
             return view('errors.503');

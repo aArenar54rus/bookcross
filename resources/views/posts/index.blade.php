@@ -6,10 +6,12 @@
         <div>
             {{$post->description}}
         </div>
-        @if (Auth::user()->id == $post->author_id)
-            {!! Form::open(array('action' => ['PostsController@destroy', $post->id], 'method' => 'delete')) !!}
-                <button type="submit" >Delete insertion</button>
-            {!! Form::close() !!}
+        @if(Auth::check())
+            @if (Auth::user()->id == $post->author_id)
+                {!! Form::open(array('action' => ['Insertions\PostsController@destroy', $post->id], 'method' => 'delete')) !!}
+                    <button type="submit" >Delete insertion</button>
+                {!! Form::close() !!}
+            @endif
         @endif
     @endforeach
 @endsection
