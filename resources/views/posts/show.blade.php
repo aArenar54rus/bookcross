@@ -5,4 +5,7 @@
         <div>
             {{$post->description}}
         </div>
+        @foreach($comments as $comment)
+        <br>{{ $comment->author_id }}{{ $comment->content }}
+        @endforeach
 @endsection

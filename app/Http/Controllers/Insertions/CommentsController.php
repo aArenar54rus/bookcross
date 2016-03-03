@@ -16,7 +16,9 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Insertion::all();
+
+        return view('comments.index', ['comments' => $comments]);
     }
 
     /**
@@ -24,10 +26,10 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-/*    public function create()
+    public function create()
     {
-        //
-    }*/
+        return view('comments.store');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,7 +39,14 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = new comment();
+
+        $comment->content = $request->content;
+        $comment->author_id = Auth::user()->id;
+
+        $comment->save();
+
+        return redirect()->action('InsertionsController@show');
     }
 
     /**
