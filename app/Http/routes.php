@@ -25,5 +25,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/', 'PagesController@Index');
     Route::resource('posts', 'Insertions\PostsController');
-    Route::controller('comments', 'Insertions\CommentsController');
+    Route::resource('adverts', 'Insertions\AdvertsController');
+    //Route::controller('comments', 'Insertions\CommentsController');
+    //Route::resource('comments', 'Insertions\CommentsController');
+    Route::post('posts/{postId}/comments/', 'Insertions\CommentsController@create');
+
+    Route::get('user', 'UsersController@show');
+    Route::get('personal_options', 'UsersController@update');
 });

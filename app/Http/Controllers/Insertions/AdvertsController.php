@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Insertions;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
+
 use App\Http\Requests;
-use App\Models\Insertion;
+use App\Models\Advert;
 use App\Http\Controllers\Controller;
 
-class PostsController extends Controller
+class AdvertsController extends Controller
 {
     public function __construct() {
         $this->middleware('auth', ['except' => [    //ограничение функций для незарегистрированного пользователя
@@ -20,24 +20,24 @@ class PostsController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     * отобразить все ресурсы
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $posts = Insertion::all();
+        $adverts = Advert::all();
 
-        return view('posts.index', ['posts' => $posts]);
+        return view('adverts.index', ['adverts' => $adverts]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     * Показ формы для создания нового объявления
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('posts.store');
+        return view('adverts.store');
     }
 
     /**
@@ -48,15 +48,18 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Insertion();
+        $advert = new Advert();
 
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->author_id = Auth::user()->id;
+        $advert->author_id = Auth::user()->id;
+        $advert->title = $request->title;
+        $advert->description = $request->description;
+        $advert->genre = $request->genre;
+        $advert->year = $request->year;
+        $advert->publishing_house = $request->publishing_house;
 
-        $post->save();
+        $advert->save();
 
-        return redirect()->action('Insertions\PostsController@index');
+        return redirect()->action('Insertions\AdvertsController@index');
     }
 
     /**
@@ -67,13 +70,13 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Insertion::find($id);
+        $advert = Advert::find($id);
 
-        if ($post) {
-            return view('posts.show', ['post' => $post]);
+        if ($advert) {
+            return view('adverts.show', ['advert' => $advert]);
         }
         else {
-            return 'No such post';
+            return 'No such advert';
         }
     }
 
@@ -85,10 +88,10 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $post = Insertion::find($id);
+        $advert = Advert::find($id);
 
-        if ($post->author_id == Auth::user()->id) {
-            return view('posts.edit', ['post' => $post]);
+        if ($advert->author_id == Auth::user()->id) {
+            return view('adverts.edit', ['advert' => $advert]);
         }
         else {
             return view('errors.503');
@@ -104,14 +107,17 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Insertion::find($id);
+        $advert = Advert::find($id);
 
-        $post->title = $request->title;
-        $post->description = $request->description;
+        $advert->title = $request->title;
+        $advert->description = $request->description;
+        $advert->genre = $request->genre;
+        $advert->year = $request->year;
+        $advert->publishing_house = $request->publishing_house;
 
-        $post->save();
+        $advert->save();
 
-        return redirect()->action('Insertions\PostsController@show', [$post->id]);
+        return redirect()->action('Insertions\AdvertsController@show', [$advert->id]);
     }
 
     /**
@@ -122,11 +128,11 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Insertion::find($id);
+        $advert = Advert::find($id);
 
-        if ($post->author_id == Auth::user()->id) {
-            $post->delete();
-            return redirect()->action('Insertions\PostsController@index');
+        if ($advert->author_id == Auth::user()->id) {
+            $advert->delete();
+            return redirect()->action('Insertions\AdvertsController@index');
         }
         else {
             return view('errors.503');

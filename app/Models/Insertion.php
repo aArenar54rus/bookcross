@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Insertion extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes;    //исключить модель из выборки без полного удаления из БД
 
     protected $dates = ['deleted_at'];
 

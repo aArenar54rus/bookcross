@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
@@ -14,21 +16,27 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
-        $comments = Insertion::all();
-
-        return view('comments.index', ['comments' => $comments]);
-    }
+        //
+    }*/
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $postId)
     {
-        return view('comments.store');
+        $comment = new comment();
+
+        $comment->message = $request->message;
+        $comment->author_id = Auth::user()->id;
+        $comment->insertion_id = $postId;
+
+        $comment->save();
+
+        return 1;//redirect()->action('Insertions\PostsController@show');
     }
 
     /**
@@ -37,17 +45,10 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+/*    public function store(Request $request)
     {
-        $comment = new comment();
-
-        $comment->content = $request->content;
-        $comment->author_id = Auth::user()->id;
-
-        $comment->save();
-
-        return redirect()->action('InsertionsController@show');
-    }
+        //
+    }*/
 
     /**
      * Display the specified resource.
@@ -80,7 +81,13 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comment = comment::find($id);
+
+        $comment->content = $request->message;
+
+        $comment->save();
+
+        return redirect()->action('Insertions\PostsController@show');
     }
 
     /**
@@ -91,6 +98,14 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = comment::find($id);
+
+        if ($comment->author_id == Auth::user()->id) {
+            $comment->delete();
+            return redirect()->action('Insertions\PostsController@index');
+        }
+        else {
+            return view('errors.503');
+        }
     }
 }
