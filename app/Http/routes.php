@@ -31,5 +31,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('posts/{postId}/comments/', 'Insertions\CommentsController@create');
 
     Route::get('user', 'UsersController@show');
-    Route::get('personal_options', 'UsersController@update');
+    Route::get('dashboard', 'UsersController@edit');
+    Route::put('dashboard/{id}', 'UsersController@update');
 });

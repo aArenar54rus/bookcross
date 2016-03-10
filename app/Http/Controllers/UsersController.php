@@ -7,39 +7,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models;
+use App\User;
 
 class UsersController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth', ['except' => [    //ограничение функций для незарегистрированного пользователя
+        $this->middleware('auth', ['except' => [    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             'index',
             'show',
         ]]);
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-//
     }
 
     /**
@@ -66,9 +42,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $user = User::find($id);
+        $user = User::find(Auth::user()->id);
 
         if ($user->id == Auth::user()->id) {
             return view('users.edit', ['user' => $user]);
@@ -89,19 +65,18 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-
-        $user->id = Auth::user()->id;
-        $user->name = $request->name;
-        $user->last_name = $request->last_name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->sex = $request->sex;
-        $user->phone = $request->phone;
-        $user->country = $request->country;
+        /*$user->id = Auth::user()->id;  !!! Id РјРµРЅСЏС‚СЊ РєР°С‚РµРіРѕСЂРёС‡РµСЃРєРё РЅРµР»СЊР·СЏ !!! */
+        $user->name = $request->input('name');
+        $user->last_name = $request->input('last_name');
+        $user->email = $request->input('email');
+        /*$user->password = $request->password; Р·Р° СЃРјРµРЅСѓ РїР°СЂРѕР»СЏ РѕС‚РІРµС‡Р°РµС‚ Auth/PasswordController */
+        $user->sex = $request->input('sex');
+        $user->phone = $request->input('phone');
+        $user->country = $request->input('country');
 
         $user->save();
 
-        return redirect()->action('PagesController@index', [$user->id]);
+        return redirect()->action('PagesController@Index');//, [$user->id]);
     }
 
     public function destroy($id)
