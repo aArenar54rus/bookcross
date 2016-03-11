@@ -123,6 +123,8 @@ return [
 
     'providers' => [
 
+
+
         /*
          * Laravel Framework Service Providers...
          */
@@ -148,6 +150,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
+
+        SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -160,7 +164,7 @@ return [
          * Admin Panel Service Providers...
          */
 
-        SleepingOwl\Admin\AdminServiceProvider::class,
+  /*      SleepingOwl\Admin\AdminServiceProvider::class,*/
 
     ],
 
@@ -213,7 +217,7 @@ return [
         /*
          * Sleeping Owl Facades
          */
-
+/*
         'Admin'         => SleepingOwl\Admin\Admin::class,
         'AdminAuth'     => SleepingOwl\AdminAuth\Facades\AdminAuth::class,
         'Column'        => SleepingOwl\Admin\Columns\Column::class,
@@ -222,7 +226,7 @@ return [
         'AdminDisplay'  => SleepingOwl\Admin\Display\AdminDisplay::class,
         'AdminForm'     => SleepingOwl\Admin\Form\AdminForm::class,
         'AdminTemplate' => SleepingOwl\Admin\Templates\Facade\AdminTemplate::class,
-        'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,
+        'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,*/
     ],
 
 ];

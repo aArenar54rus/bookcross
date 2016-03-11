@@ -4,18 +4,11 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories": [
-        {
-            "url": "https://github.com/Badou90/admin.git",
-            "type": "git"
-        }
-    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2",
         "illuminate/html": "5.*",
-        "sleeping-owl/admin": "dev-laravel-5.2",
-        "laravelcollective/html": "5.2.*"
+        "laravelrus/sleepingowl": "4.*@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
