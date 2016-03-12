@@ -23,11 +23,17 @@ class AdvertsController extends Controller
      * отобразить все ресурсы
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $adverts = Advert::all();
-
-        return view('adverts.index', ['adverts' => $adverts]);
+        $title = $request->input('title');
+        if ($title) {
+            return view('adverts.index', ['adverts' => Advert::where('title', '=', $title)->get()]);
+        }
+        else {
+            return view('adverts.index', ['adverts' => $adverts]);
+        }
+        //return view('adverts.index', ['adverts' => $adverts]);
     }
 
     /**

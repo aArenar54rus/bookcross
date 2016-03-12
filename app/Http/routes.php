@@ -29,7 +29,7 @@ Route::group(['middleware' => 'web'], function () {
     //Route::controller('comments', 'Insertions\CommentsController');
     //Route::resource('comments', 'Insertions\CommentsController');
     Route::post('posts/{postId}/comments/', 'Insertions\CommentsController@create');
-
+//    Route::get('adverts/{title?}', 'Insertions\AdvertsController@index');
     Route::get('user', 'UsersController@show');
     Route::get('dashboard', 'UsersController@edit');
     Route::put('dashboard/{id}', 'UsersController@update');
