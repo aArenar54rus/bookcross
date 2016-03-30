@@ -8,7 +8,7 @@
     @endif
     <br>
     @foreach($posts as $post)
-        Name: <p>{{$post->title}}</p>
+        <h3>{!! link_to_route('posts.show', $post->title, $post->id) !!}</h3>
         <div>
         Text:    {{$post->description}}
         </div>

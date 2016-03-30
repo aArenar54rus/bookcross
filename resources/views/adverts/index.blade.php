@@ -22,7 +22,7 @@
     <br>
 
     @foreach($adverts as $advert)
-        <br><p>{{$advert->title}}</p>
+        <h3>{!! link_to_route('adverts.show', $advert->title, $advert->id) !!}</h3>
         <div>
             {{$advert->description}}
         </div>
