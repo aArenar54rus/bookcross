@@ -1,25 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
+
     {!! Form::open(array('action' => ['Insertions\AdvertsController@index'], 'method' => 'get')) !!}
-    <p><input type="search" name="title">
-{{--    <p><input type="search" name="genre">
-    <p><input type="search" name="year">
-    <p><input type="search" name="publishing_house">--}}
+    Search:
+    <br>Title: <input type="search" name="title">
+    <br>Genre: <input type="search" name="genre">
+    {{--<p><input type="search" name="year">--}}
+    {{--<p><input type="search" name="publishing_house">--}}
 
-        <input type="submit" value="search"></p>
+    <input type="submit" value="search"></p>
     {!! Form::close() !!}
+
+    @if(Auth::check())
+        {{--@if (Auth::user()->id == $advert->author_id)--}}
+            {!! Form::open(array('action' => ['Insertions\AdvertsController@create'], 'method' => 'get')) !!}
+            <button type="submit" >Create new</button>
+            {!! Form::close() !!}
+        {{--@endif--}}
+    @endif
+    <br>
+
     @foreach($adverts as $advert)
-        @if(Auth::check())
-            @if (Auth::user()->id == $advert->author_id)
-                {!! Form::open(array('action' => ['Insertions\AdvertsController@create'], 'method' => 'get')) !!}
-                <button type="submit" >Create new</button>
-                {!! Form::close() !!}
-            @endif
-        @endif
-
-
-        <p>{{$advert->title}}</p>
+        <br><p>{{$advert->title}}</p>
         <div>
             {{$advert->description}}
         </div>

@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    Bookcrossing
                 </a>
             </div>
 
@@ -53,7 +53,9 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-
+                    @if(Auth::check())
+                    <li><a href="{{ url('/adverts') }}">Adverts</a></li>
+                    @endif
                     <li><a href="{{ url('/adverts') }}">Adverts</a></li>
                     <li><a href="{{ url('/posts') }}">Blog</a></li>
                     <li><a href="{{ url('/about') }}">About us</a></li>

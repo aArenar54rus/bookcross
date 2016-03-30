@@ -27,6 +27,8 @@ class AdvertsController extends Controller
     {
         $adverts = Advert::all();
         $title = $request->input('title');
+        $genre = $request->input('genre');
+
         if ($title) {
             return view('adverts.index', ['adverts' => Advert::where('title', '=', $title)->get()]);
         }
