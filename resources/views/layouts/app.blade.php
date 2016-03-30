@@ -53,9 +53,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if(Auth::check())
-                    <li><a href="{{ url('/adverts') }}">Adverts</a></li>
-                    @endif
+
                     <li><a href="{{ url('/adverts') }}">Adverts</a></li>
                     <li><a href="{{ url('/posts') }}">Blog</a></li>
                     <li><a href="{{ url('/about') }}">About us</a></li>
@@ -70,6 +68,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/dashboard') }}">User page</a></li>
                                 <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>

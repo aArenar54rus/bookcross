@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @foreach($users as $user)
     <h1>{{$user->name}} {{$user->last_name}}</h1>
 
     <br>Пол:
@@ -17,7 +18,7 @@
     <div>
         {{$user->phone}}
     </div>
-
+    @endforeach
 
 
 

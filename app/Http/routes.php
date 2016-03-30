@@ -33,4 +33,5 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('user', 'UsersController@show');
     Route::get('dashboard', 'UsersController@edit');
     Route::put('dashboard/{id}', 'UsersController@update');
+   /* Route::get('{id}', 'UsersController@index');*/
 });

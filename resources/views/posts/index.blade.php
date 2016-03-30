@@ -17,6 +17,7 @@
         </div>
         @if(Auth::check())
             @if (Auth::user()->id == $post->author_id)
+                {!! link_to_route('posts.edit', 'Edit', $post->id) !!}
                 {!! Form::open(array('action' => ['Insertions\PostsController@destroy', $post->id], 'method' => 'delete')) !!}
                     <button type="submit" >Delete insertion</button>
                 {!! Form::close() !!}
