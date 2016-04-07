@@ -15,7 +15,7 @@
 <body>
     <header class="clearfix">
         <div class="container">
-            <a id="logo" href="index.html">Bookcrossing</a>
+            <a id="logo" href="{{ url('/') }}">Bookcrossing</a>
             <ul class="social-icons">
                 <li><a href="http://www.facebook.com/blog.cssjuntion" class="icon flip">F</a></li>
                 <li><a href="" class="icon">Vk</a></li>
@@ -26,7 +26,7 @@
                     <li><a href="{{ url('/') }}" class="link">Home</a></li>
                     <li><a href="{{ url('/posts') }}" class="link">Blog</a></li>
                     <li><a href="{{ url('/adverts') }}" class="link">Adverts</a></li>
-                    <li><a href="" class="link">About us</a></li>
+                    <li><a href="{{ url('/about') }}" class="link">About us</a></li>
                     @if (Auth::guest())
 
                         <li><a href="{{ url('/login') }}" class="link">Login</a></li>
