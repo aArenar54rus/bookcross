@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Insertions;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+/*use app\Helpes\Upload;*/
+use App\Helpes\FileUpload;
 use App\Http\Requests;
 use App\Models\Advert;
 use App\Http\Controllers\Controller;
@@ -56,16 +57,27 @@ class AdvertsController extends Controller
      */
     public function store(Request $request)
     {
-        $advert = new Advert();
 
+        $file = $request->file('pic');
+
+        $uploader = new FileUpload();
+        $uploader = $uploader->uploadPic($file, 'adverts/');
+
+        $advert = new Advert();
         $advert->author_id = Auth::user()->id;
         $advert->title = $request->title;
         $advert->description = $request->description;
         $advert->genre = $request->genre;
         $advert->year = $request->year;
         $advert->publishing_house = $request->publishing_house;
-
         $advert->save();
+
+        $photos= new Photo();
+        $photos->user_id = Auth::user()->id;
+        $photos->advert_id = $advert->id;
+        $photos->url = '/storage/adverts/'.$uploader; //ссылки на картинки
+        $photos->main = 1;
+        $photos->save();
 
         return redirect()->action('Insertions\AdvertsController@index');
     }

@@ -18,13 +18,6 @@ class UsersController extends Controller
         ]]);
     }
 
-/*    public function index(Request $request)
-    {
-        $users = User::all;
-
-        return view('users.index', ['users' => $users]);
-    }*/
-
     /**
      * Display the specified resource.
      *
@@ -36,10 +29,11 @@ class UsersController extends Controller
         $user = User::find($id);
 
         if ($user) {
-            return view('users.show', ['user' => $user]);
+            return view('users.user', ['user' => $user]);
         }
         else {
             return 'This user does not exist!';
+            /*return view('errors.503');*/
         }
     }
 

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>{{$post->title}}</h1>
+    <h1>{{$advert->name}}</h1>
     <div>
-        {{$post->description}}
+        {{$advert->description}}
     </div>
     <div>
         {{$advert->genre}}

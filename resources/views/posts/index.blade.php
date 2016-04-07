@@ -1,27 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(Auth::check())
-        {!! Form::open(array('action' => ['Insertions\PostsController@create'], 'method' => 'get')) !!}
-        <button type="submit" >Create new post</button>
-        {!! Form::close() !!}
-    @endif
-    <br>
-    @foreach($posts as $post)
-        <h3>{!! link_to_route('posts.show', $post->title, $post->id) !!}</h3>
-        <div>
-        Text:    {{$post->description}}
-        </div>
-        <div>
-        Date:    {{ date("d.m.Y", strtotime($post->created_at)) }}
-        </div>
-        @if(Auth::check())
-            @if (Auth::user()->id == $post->author_id)
-                {!! link_to_route('posts.edit', 'Edit', $post->id) !!}
-                {!! Form::open(array('action' => ['Insertions\PostsController@destroy', $post->id], 'method' => 'delete')) !!}
-                    <button type="submit" >Delete insertion</button>
-                {!! Form::close() !!}
-            @endif
-        @endif
-    @endforeach
+    <section class="container clearfix">
+        <aside role="complementary">
+            <h2>Addtional info</h2>
+            <p>Information for users.</p>
+        </aside>
+        <article class="post content">
+            <ul class="post-list">
+                <li>
+                    @if(Auth::check())
+                        {!! Form::open(array('action' => ['Insertions\PostsController@create'], 'method' => 'get')) !!}
+                        <button type="submit" >Create new post</button>
+                        {!! Form::close() !!}
+                    @endif
+
+                    @foreach($posts as $post)
+                    <h2><a href="{{ url('/posts/'. $post->id) }}">{{$post->title}}</a></h2>
+                    <p class="meta">On {{ date("d.m.Y", strtotime($post->created_at)) }} | By: <a href="#"></a></p>
+                    <img src="http://lorempixel.com/400/180/fashion/" alt="Photo">
+                    <div class="size_text"><p>{{$post->description}} </p></div>
+                    <p><a href="{{ url('/posts/'. $post->id) }}" class="more-link">Reading continued </a></p>
+                        @if(Auth::check())
+                            @if (Auth::user()->id == $post->author_id)
+                                {!! link_to_route('posts.edit', 'Edit', $post->id) !!}
+                                {!! Form::open(array('action' => ['Insertions\PostsController@destroy', $post->id], 'method' => 'delete')) !!}
+                                <button type="submit" >Delete insertion</button>
+                                {!! Form::close() !!}
+                            @endif
+                        @endif
+                    @endforeach
+                </li>
+            </ul>
+        </article>
+    </section>
 @endsection

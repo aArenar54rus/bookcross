@@ -7,83 +7,56 @@
 
     <title>Bookcrossing</title>
 
-    <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" media="all" href="{{ url('public/css/main.css')}}">
+    <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" >
+    <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
 
-    <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
 </head>
-<body id="app-layout">
-    <nav class="navbar navbar-default">
+<body>
+    <header class="clearfix">
         <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#spark-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Bookcrossing
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="spark-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-
-                    <li><a href="{{ url('/adverts') }}">Adverts</a></li>
-                    <li><a href="{{ url('/posts') }}">Blog</a></li>
-                    <li><a href="{{ url('/about') }}">About us</a></li>
-
+            <a id="logo" href="index.html">Bookcrossing</a>
+            <ul class="social-icons">
+                <li><a href="http://www.facebook.com/blog.cssjuntion" class="icon flip">F</a></li>
+                <li><a href="" class="icon">Vk</a></li>
+                <li><a href="http://www.twitter.com/cssjunction" class="icon">T</a></li>
+            </ul>
+            <nav class="clearfix">
+                <ul class="topmenu">
+                    <li><a href="{{ url('/') }}" class="link">Home</a></li>
+                    <li><a href="{{ url('/posts') }}" class="link">Blog</a></li>
+                    <li><a href="{{ url('/adverts') }}" class="link">Adverts</a></li>
+                    <li><a href="" class="link">About us</a></li>
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
 
-                            <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/login') }}" class="link">Login</a></li>
+                        <li><a href="{{ url('/register') }}" class="link">Register</a></li>
+
+                    @else
+
+                        <li><a href="{{ url('/user/'. \Illuminate\Support\Facades\Auth::user()->id) }}" class="link">Profile</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="link" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}</a>
+                            <ul class="submenu" role="menu">
                                 <li><a href="{{ url('/dashboard') }}">User page</a></li>
                                 <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
                         </li>
+
                     @endif
                 </ul>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     @yield('content')
 
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <footer role="contentinfo">
+        <p>
+            <span class="left">CSS Junction &copy; - 2012 | Released under Creative Common License. <a href="#">Goto Top</a></span>
+            <a href="index.html">HOME</a> | <a href="portfolio.html">PORTFOLIO</a> | <a href="page.html">PAGE</a> |  <a href="blog.html">BLOG</a> | <a href="contact.html">CONTACT US</a>
+        </p>
+    </footer>
 </body>
 </html>

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Insertions;
 
 use Illuminate\Http\Request;
-
+use App\Helpes\FileUpload;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Models\Insertion;
 use App\Http\Controllers\Controller;
+use App\Models\Photo;
 
 class PostsController extends Controller
 {
@@ -48,13 +49,23 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Insertion();
+        $file = $request->file('pic');
 
+        $uploader = new FileUpload();
+        $uploader = $uploader->uploadPic($file, 'insertions/');
+
+        $post = new Insertion();
         $post->title = $request->title;
         $post->description = $request->description;
         $post->author_id = Auth::user()->id;
-
         $post->save();
+
+        $photos= new Photo();
+        $photos->user_id = Auth::user()->id;
+        $photos->insertion_id = $post->id;
+        $photos->url = '/storage/insertion/'.$uploader; //ссылки на картинки
+        $photos->main = 1;
+        $photos->save();
 
         return redirect()->action('Insertions\PostsController@index');
     }

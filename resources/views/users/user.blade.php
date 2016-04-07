@@ -1,25 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach($users as $user)
     <h1>{{$user->name}} {{$user->last_name}}</h1>
 
-    <br>Пол:
+    <br>Sex:
     <div>
         {{$user->sex}}
     </div>
 
-    <br>Страна:
+    <br>Country:
     <div>
         {{$user->country}}
     </div>
 
-    <br>Телефон:
+    <br>Tel.:
     <div>
         {{$user->phone}}
     </div>
-    @endforeach
-
-
-
 @endsection

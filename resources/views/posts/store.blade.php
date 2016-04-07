@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {!! Form::open(array('action' => 'Insertions\PostsController@store', 'method' => 'post', 'class' => 'form-horizontal' )) !!}
+    {!! Form::open(array('action' => 'Insertions\PostsController@store', 'method' => 'post','files'=>true, 'class' => 'form-horizontal' )) !!}
 
         {!! Form::label('title', 'Your insertion title', array('class' => 'col-md-4 control-label')) !!}
 
@@ -14,6 +14,8 @@
         <div class="col-md-6">
             {!! Form::text('description', '', array('class' => 'form-control')) !!}
         </div>
+
+        {!! Form::file('pic') !!}
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

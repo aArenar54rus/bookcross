@@ -37,10 +37,14 @@
         {!! Form::text('year', 'Год издания', array('class' => 'form-control')) !!}
     </div>
 
+    Upload picture:<br>
+
+    {!! Form::file('pic') !!}
+
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
-            {!! Form::button('Send', array('class' => 'btn btn-primary', 'type' => 'submit')) !!}
+            {!! Form::button('Create new', array('class' => 'btn btn-primary', 'type' => 'submit')) !!}
         </div>
     </div>
     {!! Form::close() !!}

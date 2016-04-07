@@ -30,8 +30,13 @@ Route::group(['middleware' => 'web'], function () {
     //Route::resource('comments', 'Insertions\CommentsController');
     Route::post('posts/{postId}/comments/', 'Insertions\CommentsController@create');
 //    Route::get('adverts/{title?}', 'Insertions\AdvertsController@index');
-    Route::get('user', 'UsersController@show');
+    Route::get('user/{id}', 'UsersController@show');
     Route::get('dashboard', 'UsersController@edit');
     Route::put('dashboard/{id}', 'UsersController@update');
-   /* Route::get('{id}', 'UsersController@index');*/
+
+
+    Route::get('upload', function() {
+        return View::make('users.upload');
+    });
+    Route::post('upload', 'UploadController@upload');
 });
