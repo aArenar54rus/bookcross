@@ -32,4 +32,9 @@ class PagesController extends Controller
     {
         return view('about');
     }
+
+    public function recall()
+    {
+        return view('recall');
+    }
 }

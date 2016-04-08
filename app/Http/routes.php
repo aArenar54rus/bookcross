@@ -25,6 +25,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/', 'PagesController@Index');
     Route::get('/about', 'PagesController@about');
+    Route::put('user/{id}/feedbacks', 'Insertions\FeedbacksController@create');
     Route::resource('posts', 'Insertions\PostsController');
     Route::resource('adverts', 'Insertions\AdvertsController');
     //Route::controller('comments', 'Insertions\CommentsController');
@@ -34,7 +35,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('user/{id}', 'UsersController@show');
     Route::get('dashboard', 'UsersController@edit');
     Route::put('dashboard/{id}', 'UsersController@update');
-
 
     Route::get('upload', function() {
         return View::make('users.upload');
