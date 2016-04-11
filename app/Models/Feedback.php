@@ -15,7 +15,7 @@ class Feedback extends Model
     // returns post of any feedback
     public function post()
     {
-        return $this->belongsTo('App\Models\Insertion');
+        return $this->belongsTo('App\User');
     }
 
     // user who has used feedback

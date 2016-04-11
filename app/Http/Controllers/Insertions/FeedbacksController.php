@@ -30,6 +30,7 @@ class FeedbacksController extends Controller
     public function create(Request $request, $userId)
     {
         $karma = $request;
+        $message = $request;
         $id = 1;
         $user = User::find($id);
         $userId = $user ->id;
@@ -40,7 +41,7 @@ class FeedbacksController extends Controller
         }
 
         $feedback = new feedback();
-        $feedback->message = $request->message;
+        $feedback->message = $message;
         $feedback->author_id = Auth::user()->id;
         $feedback->user_id = $userId;
 
@@ -51,9 +52,7 @@ class FeedbacksController extends Controller
         }
         $feedback->save();
 
-
-
-        redirect()->back;
+        redirect()->back();
     }
 
     /**
