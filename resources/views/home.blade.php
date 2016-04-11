@@ -10,10 +10,7 @@
                 <div>
                     @if(Auth::check())
                         <section role="banner">
-                            <hgroup>
-                                <h1></h1>
-                                <h2>Even the icons used are texts icons, easier to use/customize and load page faster.</h2>
-                            </hgroup>
+
                             <article role="main" class="clearfix">
                                 <div class="post">
                                     <h2>Welcome!</h2>

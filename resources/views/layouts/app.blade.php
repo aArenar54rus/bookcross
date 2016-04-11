@@ -49,7 +49,15 @@
             </nav>
         </div>
     </header>
-
+    <section role="banner">
+        <hgroup>
+            @if (Auth::guest())
+            <h2>Welcome to the new site for buy and exchange books and ideas.</h2>
+            @else
+                <h2>News: new news.</h2>
+            @endif
+        </hgroup>
+    </section>
     <section class="container clearfix">
         @yield('content')
     </section>
