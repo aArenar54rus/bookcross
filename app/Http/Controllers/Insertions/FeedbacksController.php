@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Feedback;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class FeedbacksController extends Controller
@@ -28,15 +29,31 @@ class FeedbacksController extends Controller
      */
     public function create(Request $request, $userId)
     {
-        $feedback = new feedback();
+        $karma = $request;
+        $id = 1;
+        $user = User::find($id);
+        $userId = $user ->id;
+        if ($karma == '+1'){
+            $user->karma += 1;
+        } else{
+            $user->karma -= 1;
+        }
 
+        $feedback = new feedback();
         $feedback->message = $request->message;
         $feedback->author_id = Auth::user()->id;
         $feedback->user_id = $userId;
 
+        if ($karma == '+1'){
+            $feedback->karma += 1;
+        } else{
+            $feedback->karma -= 1;
+        }
         $feedback->save();
 
-        return 1;//redirect()->action('Insertions\PostsController@show');
+
+
+        redirect()->back;
     }
 
     /**

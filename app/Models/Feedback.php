@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feedback extends Model
 {
-    protected $table = 'comments';
+    protected $table = 'feedbacks';
 
     protected $fillable = [
-        'content',
+        'content','karma','user_id',
     ];
 
     // returns post of any feedback
