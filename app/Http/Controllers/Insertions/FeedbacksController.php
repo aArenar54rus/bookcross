@@ -27,18 +27,20 @@ class FeedbacksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, $userId)
+    public function create(Request $request)
     {
-        $karma = $request;
-        $message = $request;
-        $id = 1;
-        $user = User::find($id);
+        $user_id = $request->input('user_id');
+        $karma = $request->input('karma');
+        $message = $request->input('message');
+
+        $user = User::find($user_id);
         $userId = $user ->id;
         if ($karma == '+1'){
             $user->karma += 1;
         } else{
             $user->karma -= 1;
         }
+        $user->save();
 
         $feedback = new feedback();
         $feedback->message = $message;
@@ -52,7 +54,7 @@ class FeedbacksController extends Controller
         }
         $feedback->save();
 
-        redirect()->back();
+       return 1;
     }
 
     /**

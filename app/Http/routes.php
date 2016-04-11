@@ -25,7 +25,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/', 'PagesController@Index');
     Route::get('/about', 'PagesController@about');
-    Route::get('user/{id}/feedback', 'Insertions\FeedbacksController@create');
+    Route::post('user/{id}/feedback', 'Insertions\FeedbacksController@create');
     Route::resource('posts', 'Insertions\PostsController');
     Route::resource('adverts', 'Insertions\AdvertsController');
     Route::post('posts/{postId}/comments/', 'Insertions\CommentsController@create');

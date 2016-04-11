@@ -19,8 +19,6 @@
     </div>
 
     Would you like to leave a feedback about this person?
-    <form action="{{ url('/user/'.$user->id.'/feedback')}}">
-        <button type="submit">Of course!</button>
-    </form>
+    @include('users.feedback')
 
 @endsection
