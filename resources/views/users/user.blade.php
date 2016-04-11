@@ -1,26 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
+    <section class="container clearfix">
     <h1>{{$user->name}} {{$user->last_name}}</h1>
 
-    <br>Sex:
+    <br><h2>Personal karma:</h2>
+    <div>
+    {{$user->karma}}
+    </div>
+
+    <br><h2>Sex:</h2>
     <div>
         {{$user->sex}}
     </div>
 
-    <br>Country:
+    <br><h2>Country:</h2>
     <div>
         {{$user->country}}
     </div>
 
-    <br>Tel.:
+    <br><h2>Tel.:</h2>
     <div>
         {{$user->phone}}
     </div>
-    {!! Form::open(array('url' => 'foo/bar')) !!}
-    if (($user->id)==(\Illuminate\Support\Facades\Auth::user()->id)){
-    Would you like to leave a feedback about this person?
-    @include('users.feedback')
-    }
-    {!! Form::close() !!}
+
+    @if (($user->id)!=(Auth::user()->id))
+        Would you like to leave a feedback about this person?
+        @include('users.feedback')
+    @endif
+    </section>
 @endsection

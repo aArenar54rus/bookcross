@@ -1,7 +1,7 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')
 
-@section('content')
-<h1>Create new feedback: </h1>
+@section('content')--}}
+
 <form action="{{$user->id}}/feedback" method="POST">
     <br>Add feedback:<br>
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -12,4 +12,5 @@
     <input type="submit" value="Отправить" /><br>
 </form>
 
-@endsection
+{{--
+@endsection--}}
