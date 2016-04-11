@@ -7,7 +7,7 @@
         --}}{{--{{ HTML::image('storage/'.$user->id.'*.jpg') }}--}}{{--
         <img src="{{URL::asset($photo->path)}}" height="200" width="300">
     @endif--}}
-    @if (($user->id)!=(Auth::user()->id))
+    @if (($user->id)==(Auth::user()->id))
         Add new avatar: <a href="{{ url('/upload') }}">tap here</a>.
     @endif
     <br><h2>Personal karma:</h2>
