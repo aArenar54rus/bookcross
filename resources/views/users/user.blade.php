@@ -17,8 +17,10 @@
     <div>
         {{$user->phone}}
     </div>
-
+    {!! Form::open(array('url' => 'foo/bar')) !!}
+    if (($user->id)==(\Illuminate\Support\Facades\Auth::user()->id)){
     Would you like to leave a feedback about this person?
     @include('users.feedback')
-
+    }
+    {!! Form::close() !!}
 @endsection

@@ -40,7 +40,6 @@ class FeedbacksController extends Controller
         } else{
             $user->karma -= 1;
         }
-        $user->save();
 
         $feedback = new feedback();
         $feedback->message = $message;
@@ -52,9 +51,14 @@ class FeedbacksController extends Controller
         } else{
             $feedback->karma -= 1;
         }
-        $feedback->save();
 
-       return 1;
+        if ((Auth::user()->id == $user_id) or (Feedback::find(author_id) == Auth::user()->id)){
+            return view('errors.505');
+        } else{
+            $user->save();
+            $feedback->save();
+            return view('users.user');
+        }
     }
 
     /**
