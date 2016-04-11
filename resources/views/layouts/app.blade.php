@@ -16,11 +16,7 @@
     <header class="clearfix">
         <div class="container">
             <a id="logo" href="{{ url('/') }}">Bookcrossing</a>
-            <ul class="social-icons">
-                <li><a href="http://www.facebook.com/blog.cssjuntion" class="icon flip">F</a></li>
-                <li><a href="" class="icon">Vk</a></li>
-                <li><a href="http://www.twitter.com/cssjunction" class="icon">T</a></li>
-            </ul>
+
             <nav class="clearfix">
                 <ul class="topmenu">
                     <li><a href="{{ url('/') }}" class="link">Home</a></li>
