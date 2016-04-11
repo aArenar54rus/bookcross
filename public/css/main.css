@@ -146,6 +146,25 @@ a {
 .size_text:hover {
   white-space: normal; /* Обычный перенос текста */
 }
+/*============== Social Icons ===================*/
+.social_icons {
+  display: inline-block;
+  margin: 0px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.25), /*Тень*/
+  inset 0 2px 0 rgba(255,255,255,.6), /*Внутренняя тень*/
+  0 2px 0 rgba(0,0,0,.1),/*немного затемнить место под кнопкой снизу*/
+  inset 0 0 20px rgba(0,0,0,.1);/*затемняет пространство внутри кнопки*/
+}
+.social_icons:hover { /*при наведении*/
+  box-shadow: inset 0 0 20px rgba(0,0,0,.2),
+  0 2px 0 rgba(255,255,255,.4),
+  inset 0 2px 0 rgba(0,0,0,.1);
+}
 /*================================================
     End functions of MASTER BLASTER
 ================================================*/
@@ -225,85 +244,12 @@ header {
 #logo .icon {
   padding-right: 5px;
 }
-.social-icons {
-  float: right;
-  margin: 0;
-  overflow: hidden;
-}
-.social-icons li {
-  float: left;
-  list-style: none;
-  margin: 0 0 0 5px;
-  height: 24px;
-}
-.social-icons li a.icon {
-  display: block;
-  background: #ffcc44;
-  color: White;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-}
-.social-icons li a.icon:hover, .social-icons li a.icon:focus, .social-icons li a.iconactive {
-  background: #41b7d8;
-}
-.social-icons li a.icon.flip {
-  -moz-transform: scaley(-1);
-  -webkit-transform: scaley(-1);
-  -o-transform: scaley(-1);
-  transform: scaley(-1);
-  filter: flipv;
-}
+
 nav {
   /*float: top;*/
   margin: 30px 0 0;
   clear: both;
 }
-/*ul[role=navigation] {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  font: 0.9em/1.67em Helvetica, Arial, Tahoma;
-  text-transform: uppercase;
-}
-ul[role=navigation] li {
-  list-style: none;
-  float: left;
-  margin: 0 0 0 5px;
-}
-ul[role=navigation] li a {
-  background: #41b7d8;
-  border: 1px solid #2495b4;
-  border-bottom: 0; /!*Нижняя черта*!/
-  -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) inset;
-  -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) inset;
-  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) inset;
-  -moz-border-radius: 3px 3px 0 0;
-  -webkit-border-radius: 3px 3px 0 0;
-  border-radius: 3px 3px 0 0;
-  color: #4b79ff; /!*цвет текста*!/
-  display: inline-block;
-  padding: 7px 20px 5px;
-}
-ul[role=navigation] li a:hover,
-ul[role=navigation] li a:focus,
-ul[role=navigation] li a:active,
-ul[role=navigation] li a.activePage {
-  border-color: #10253d;
-  background: url(../../../public/images/leather-pattern.png);
-  /!*color: White;*!/
-  -moz-box-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
-  box-shadow: rgba(255, 251, 255, 0.8) 0 1px 0;
-}
-ul[role=navigation] li a .icon {
-  padding-right: 10px;
-  font-size: 17px;
-}*/
 section[role=banner] {
   background: url(../../../public/images/light-pattern.png);
   border-bottom: 1px solid #fffbff;
@@ -778,13 +724,6 @@ footer[role=contentinfo] p .left {
     width: 90%;
     float: none;
     font-size: 22px;
-  }
-  .social-icons {
-    display: block;
-    float: none;
-    position: absolute;
-    right: 5%;
-    top: 12px;
   }
   nav {
     float: none;

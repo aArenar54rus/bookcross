@@ -16,7 +16,6 @@
     <header class="clearfix">
         <div class="container">
             <a id="logo" href="{{ url('/') }}">Bookcrossing</a>
-
             <nav class="clearfix">
                 <ul class="topmenu">
                     <li><a href="{{ url('/') }}" class="link">Home</a></li>
@@ -39,8 +38,12 @@
                                 <li><a href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
                         </li>
-
                     @endif
+
+                    <li class="social_icons">{{--<a href="{{ url('/dashboard') }}">Facebook</a>--}}</li>
+                    <li class="social_icons">{{--<a href="{{ url('/dashboard') }}">Facebook</a>--}}</li>
+                    <li class="social_icons">{{--<a href="{{ url('/dashboard') }}">Facebook</a>--}}</li>
+
                 </ul>
             </nav>
         </div>

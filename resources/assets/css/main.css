@@ -146,6 +146,25 @@ a {
 .size_text:hover {
   white-space: normal; /* Обычный перенос текста */
 }
+/*============== Social Icons ===================*/
+.social_icons {
+  display: inline-block;
+  margin: 0px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.25), /*Тень*/
+  inset 0 2px 0 rgba(255,255,255,.6), /*Внутренняя тень*/
+  0 2px 0 rgba(0,0,0,.1),/*немного затемнить место под кнопкой снизу*/
+  inset 0 0 20px rgba(0,0,0,.1);/*затемняет пространство внутри кнопки*/
+}
+.social_icons:hover { /*при наведении*/
+  box-shadow: inset 0 0 20px rgba(0,0,0,.2),
+  0 2px 0 rgba(255,255,255,.4),
+  inset 0 2px 0 rgba(0,0,0,.1);
+}
 /*================================================
     End functions of MASTER BLASTER
 ================================================*/
