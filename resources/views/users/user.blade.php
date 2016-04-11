@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="container clearfix">
+
     <h1>{{$user->name}} {{$user->last_name}}</h1>
 
     <br><h2>Personal karma:</h2>
@@ -28,5 +28,5 @@
         Would you like to leave a feedback about this person?
         @include('users.feedback')
     @endif
-    </section>
-@endsection
+
+@stop

@@ -1,6 +1,4 @@
-{{--@extends('layouts.app')
 
-@section('content')--}}
 
 <form action="{{$user->id}}/feedback" method="POST">
     <br>Add feedback:<br>
@@ -11,6 +9,3 @@
     <input type="radio" name="karma" value="-1" />Bad :(<br />
     <input type="submit" value="Отправить" /><br>
 </form>
-
-{{--
-@endsection--}}

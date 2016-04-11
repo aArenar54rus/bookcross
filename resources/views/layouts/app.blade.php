@@ -50,7 +50,9 @@
         </div>
     </header>
 
-    @yield('content')
+    <section class="container clearfix">
+        @yield('content')
+    </section>
 
     <footer role="contentinfo">
         <p>
