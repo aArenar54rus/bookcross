@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Insertions;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-/*use app\Helpes\Upload;*/
 use App\Helpes\FileUpload;
 use App\Http\Requests;
 use App\Models\Advert;
 use App\Http\Controllers\Controller;
+use App\Models\Photo;
 
 class AdvertsController extends Controller
 {
@@ -57,9 +57,7 @@ class AdvertsController extends Controller
      */
     public function store(Request $request)
     {
-
         $file = $request->file('pic');
-
         $uploader = new FileUpload();
         $uploader = $uploader->uploadPic($file, 'adverts/');
 

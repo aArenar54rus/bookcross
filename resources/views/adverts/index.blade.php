@@ -11,7 +11,7 @@
                     <li>
 
                         {!! Form::open(array('action' => ['Insertions\AdvertsController@index'], 'method' => 'get')) !!}
-                        <div class="grid_4 about">Search:<div>
+                        <div class="grid_4 about">Search:</div>
                                 <div><br>Title: <input type="search" name="title"></div>
                                 <div><br>Genre: <input type="search" name="genre"></div>
                                 {{--<p><input type="search" name="year">--}}
@@ -33,7 +33,7 @@
                             <h4>{{$advert->year}}</h4>
                             <h5>Genre:{{$advert->genre}}</h5>
                             <h5>Publishing house:{{$advert->publishing_house}}</h5>
-                            <p class="meta">On {{ date("d.m.Y", strtotime($advert->created_at)) }} | By: <a href="#"></a></p>
+                            <p class="meta">On {{ date("d.m.Y", strtotime($advert->created_at)) }} | By: <a href="{{ url('/user/'.$advert->author_id) }}">{{App\User::find($advert->author_id)->name}}</a></p>
                             <img src="http://lorempixel.com/400/180/fashion/" alt="Photo">
                             <p>{{$advert->description}} </p>
                             <p><a href="{{ url('/adverts/'. $advert->id) }}" class="more-link">Read more </a></p>
@@ -49,8 +49,4 @@
                 </ul>
             </article>
         </section>
-
-
-
-
 @endsection

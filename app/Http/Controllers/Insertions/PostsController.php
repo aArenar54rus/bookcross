@@ -50,7 +50,6 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('pic');
-
         $uploader = new FileUpload();
         $uploader = $uploader->uploadPic($file, 'insertions/');
 

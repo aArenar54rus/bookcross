@@ -7,6 +7,4 @@
                     array('class'=>'btn btn-default')) !!}
     {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
     {!! Form::close() !!}
-
-
 @endsection

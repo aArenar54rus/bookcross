@@ -32,8 +32,7 @@ class UsersController extends Controller
             return view('users.user', ['user' => $user]);
         }
         else {
-            return 'This user does not exist!';
-            /*return view('errors.503');*/
+            return view('errors.404');
         }
     }
 
