@@ -40,9 +40,9 @@
                         </li>
                     @endif
 
-                    <li class="social_icons">{{--<a href="{{ url('/dashboard') }}">Facebook</a>--}}</li>
-                    <li class="social_icons">{{--<a href="{{ url('/dashboard') }}">Facebook</a>--}}</li>
-                    <li class="social_icons">{{--<a href="{{ url('/dashboard') }}">Facebook</a>--}}</li>
+                    <li class="social_icons" twitter><a href="{{ url('/dashboard') }}">T</a></li>
+                    <li class="social_icons" facebook><a href="{{ url('/dashboard') }}">F</a></li>
+                    <li class="social_icons" google><a href="{{ url('/dashboard') }}">G</a></li>
 
                 </ul>
             </nav>
@@ -64,7 +64,7 @@
     <footer role="contentinfo">
         <p>
             <span class="left">CSS Junction &copy; - 2012 | Released under Creative Common License. <a href="#">Goto Top</a></span>
-            <a href="index.html">HOME</a> | <a href="portfolio.html">PORTFOLIO</a> | <a href="page.html">PAGE</a> |  <a href="blog.html">BLOG</a> | <a href="contact.html">CONTACT US</a>
+            Created by <a href="vk.com/arenar">Semibokov Stanislav</a> and <a href="buben.guru">Buben Guru</a>, 2015.
         </p>
     </footer>
 </body>
