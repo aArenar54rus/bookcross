@@ -687,7 +687,7 @@ footer[role=contentinfo] {
   -moz-box-shadow: inset rgba(0, 0, 0, 0.1) 0 10px 10px, rgba(255, 255, 255, 0.7) 0 10px 10px;
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.1) 0 10px 10px, rgba(255, 255, 255, 0.7) 0 10px 10px;
   box-shadow: inset rgba(0, 0, 0, 0.1) 0 10px 10px, rgba(255, 255, 255, 0.7) 0 10px 10px;
-  color: #dfe9f2;
+  color: #8f9093;
   padding: 10px 0;
 }
 footer[role=contentinfo] p {
