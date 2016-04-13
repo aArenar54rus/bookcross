@@ -195,7 +195,11 @@ a {
   position: relative;
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
   color: #005e9e;
+}
+.social_icon_sprite {
+  background-image: url(../images/facebook20x20.png);
 }
 /*================================================
     End functions of MASTER BLASTER
@@ -262,7 +266,6 @@ span.icon {
   text-transform: none !important;
 }
 header {
-  background: url(../../../public/images/light-pattern.png) transparent;
   padding: 15px 0 0;
 }
 #logo {
@@ -283,11 +286,9 @@ nav {
   clear: both;
 }
 section[role=banner] {
-  background: url(../../../public/images/light-pattern.png);
   border-bottom: 1px solid #fffbff;
 }
 section[role=banner] hgroup {
-  background: url(../../../public/images/leather-pattern.png);
   -moz-box-shadow: inset rgba(0, 0, 0, 0.1) 0 10px 10px, rgba(255, 255, 255, 0.7) 0 10px 10px;
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.1) 0 10px 10px, rgba(255, 255, 255, 0.7) 0 10px 10px;
   box-shadow: inset rgba(0, 0, 0, 0.1) 0 10px 10px, rgba(255, 255, 255, 0.7) 0 10px 10px;
@@ -715,7 +716,6 @@ section[role="banner"] article[role="main"].contact .post {
   width: 35%;
 }
 footer[role=contentinfo] {
-  background: url(../../../public/images/leather-pattern.png);
   border-top: 4px dotted #444;
   -moz-box-shadow: inset rgba(0, 0, 0, 0.1) 0 10px 10px, rgba(255, 255, 255, 0.7) 0 10px 10px;
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.1) 0 10px 10px, rgba(255, 255, 255, 0.7) 0 10px 10px;
@@ -749,7 +749,6 @@ footer[role=contentinfo] p .left {
     padding-top: 0;
   }
   #logo {
-    background: url(../../../public/images/light-pattern.png) transparent;
     border-bottom: 1px solid #ccc;
     margin: 0 0 20px;
     padding: 10px 5%;

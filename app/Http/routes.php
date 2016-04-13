@@ -37,4 +37,7 @@ Route::group(['middleware' => 'web'], function () {
         return View::make('users.upload');
     });
     Route::post('upload', 'UploadController@upload');
+
 });
+Route::post('about', 'EmailController@showForm');
+Route::post('about', 'EmailController@handleFormPost');

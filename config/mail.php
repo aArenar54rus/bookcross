@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'aleksandr.lytysov@gmail.com', 'name' => 'Bookcross'],
+    'from' => ['address' => 'arenar54rus@gmail.com', 'name' => 'Administrator'],
 
     /*
     |--------------------------------------------------------------------------

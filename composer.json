@@ -7,8 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2",
-        "illuminate/html": "5.*",
-        "laravelrus/sleepingowl": "4.*@dev"
+        "illuminate/html": "5.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

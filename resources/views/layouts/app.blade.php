@@ -40,7 +40,7 @@
                         </li>
                     @endif
 
-                    <li class="social_icons" twitter><a href="{{ url('/dashboard') }}">T</a></li>
+                    <li class="social_icons" twitter><a href="{{ url('/dashboard') }}"><div class="social_icon_sprite"></div></a></li>
                     <li class="social_icons" facebook><a href="{{ url('/dashboard') }}">F</a></li>
                     <li class="social_icons" google><a href="{{ url('/dashboard') }}">G</a></li>
 
@@ -57,6 +57,7 @@
             @endif
         </hgroup>
     </section>
+    <div class="social_icon_sprite"></div>
     <section class="container clearfix">
         @yield('content')
     </section>
