@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    {{--{{$user}}--}}
     {{--<img src="{{App\Models\Photo::where('user_id', $user->id)->first()->url}}" alt="">--}}
     {{--<div class="avatar_size"><img src="http://localhost/laravel.bookcross/storage/avatars/1.jpg" alt=""></div>--}}
         <aside role="complementary">
@@ -41,9 +42,9 @@
                 <li>
                     <h2>Feedbacks: </h2>
                     @foreach(\App\Models\Feedback::all() as $feedback)
-                        @if ($feedback->author_id != $feedback->user_id)
-                            @if($feedback->author_id == $user->id)
-                                <br><h3>{{$user->name}} {{$user->last_name}}</h3>
+                        @if ($feedback->user_id == $user->id)
+                            @if($feedback->author_id == DB::table('users')->where('id',$feedback->author_id)->value('id'))
+                                <br><h3>{{DB::table('users')->where('id',$feedback->author_id)->value('name', 'last_name')}}</h3>
                             @endif
                             <br>{{ $feedback->message }}
                         @endif

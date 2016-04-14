@@ -10,6 +10,7 @@ use App\Models\Feedback;
 use App\User;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FeedbacksController extends Controller
 {
@@ -46,19 +47,19 @@ class FeedbacksController extends Controller
         $feedback->message = $message;
         $feedback->author_id = Auth::user()->id;
         $feedback->user_id = $userId;
-
         if ($karma == '+1'){
             $feedback->karma += 1;
         } else{
             $feedback->karma -= 1;
         }
 
-        if (Feedback::where('author_id', Auth::user()->id)) /*or (Feedback::find(author_id) == Auth::user()->id)*/ {
+        if (DB::table('feedbacks')->where('author_id', Auth::user()->id)->where('user_id',$userId)->value('author_id') == Auth::user()->id){
+       /* if (Feedback::where('author_id', Auth::user()->id)) /*or (Feedback::find(author_id) == Auth::user()->id)*/
             return view('errors.505');
         } else{
             $user->save();
             $feedback->save();
-            return view('users.user');
+            return view('users.user', ['user' => $user]);
         }
     }
 

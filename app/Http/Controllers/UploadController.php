@@ -11,6 +11,7 @@ use Session;
 use Illuminate\Support\Facades\File;*/
 use Illuminate\Support\Facades\Auth;
 use App\Models\Photo;
+use Illuminate\Support\Facades\DB;
 
 class UploadController extends Controller {
 
@@ -22,17 +23,7 @@ class UploadController extends Controller {
         $fileName = Auth::user()->id./*'_'.rand(11111, 99999) . */'.' . $extension;
         $file->move(base_path().$destinationPath,$fileName);
 
-/*        $delete = Photo::where('user_id', Auth::user()->id);
-        $delete->delete();
-
-        $photos= new Photo(); //обращается к контроллеру???
-        $photos->user_id = Auth::user()->id;
-        $photos->url = 'storage/avatars/'.$fileName; //ссылки на картинки
-        $photos->main = 1;
-        $photos->save();*/
-
-        if (Photo::where('user_id', Auth::user()->id)){
-            echo ('Database update');
+        if (DB::table('photos')->where('user_id', Auth::user()->id)->value('user_id') == Auth::user()->id){
         }
         else{
             $photos= new Photo(); //обращается к контроллеру???
