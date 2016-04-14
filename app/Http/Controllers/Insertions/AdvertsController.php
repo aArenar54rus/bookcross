@@ -71,7 +71,7 @@ class AdvertsController extends Controller
         $advert->save();
 
         $photos= new Photo();
-        $photos->user_id = Auth::user()->id;
+        /*$photos->user_id = Auth::user()->id;*/
         $photos->advert_id = $advert->id;
         $photos->url = '/storage/adverts/'.$uploader; //ссылки на картинки
         $photos->main = 1;

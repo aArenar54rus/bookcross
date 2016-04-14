@@ -9,7 +9,7 @@ class FileUpload
         {
             $destinationPath = '/storage/'.$path;
             $extension = $file->getClientOriginalExtension(); //получение расширение файла
-            $fileName = Auth::user()->id.'_'.rand(11111, 99999) . '.' . $extension;
+            $fileName = Auth::user()->id . '.' . $extension;
             $file->move(base_path() . $destinationPath, $fileName);
             return $fileName;
         }

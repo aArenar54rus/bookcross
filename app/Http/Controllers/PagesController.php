@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 class PagesController extends Controller
 {
     /**
@@ -15,9 +12,8 @@ class PagesController extends Controller
      */
     public function __construct()
     {
-    //    $this->middleware('auth');
+        //    $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -27,12 +23,10 @@ class PagesController extends Controller
     {
         return view('home');
     }
-
     public function about()
     {
         return view('about');
     }
-
     public function recall()
     {
         return view('recall');

@@ -21,11 +21,9 @@
                                 {!! Form::close() !!}
 
                                 @if(Auth::check())
-                                    {{--@if (Auth::user()->id == $advert->author_id)--}}
                                     {!! Form::open(array('action' => ['Insertions\AdvertsController@create'], 'method' => 'get')) !!}
                                     <button type="submit" >Create new</button>
                                     {!! Form::close() !!}
-                                    {{--@endif--}}
                                 @endif
 
                         @foreach($adverts as $advert)

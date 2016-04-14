@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Feedback;
 use App\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class FeedbacksController extends Controller
@@ -52,7 +53,7 @@ class FeedbacksController extends Controller
             $feedback->karma -= 1;
         }
 
-        if ((Auth::user()->id == $user_id) or (Feedback::find(author_id) == Auth::user()->id)){
+        if (Feedback::where('author_id', Auth::user()->id)) /*or (Feedback::find(author_id) == Auth::user()->id)*/ {
             return view('errors.505');
         } else{
             $user->save();
