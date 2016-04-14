@@ -6,7 +6,13 @@
     {{--<div class="avatar_size"><img src="http://localhost/laravel.bookcross/storage/avatars/1.jpg" alt=""></div>--}}
         <aside role="complementary">
             <h2>{{$user->name}} {{$user->last_name}}</h2>
-            <div class="avatar_size">{!! HTML::image('storage/avatars/'.$user->id.'.jpg') !!}</div>
+            <div class="avatar_size">
+                @if(DB::table('photos')->where('user_id',$user->id)->value('user_id') == $user->id)
+                {!! HTML::image('storage/avatars/'.$user->id.'.jpg') !!}
+                    @else
+                    {!! HTML::image('storage/avatars/0.jpg') !!}
+                @endif
+            </div>
             <br>
             @if (($user->id)==(Auth::user()->id))
                 Add new avatar: <a href="{{ url('/upload') }}" role="button">tap here</a>.
