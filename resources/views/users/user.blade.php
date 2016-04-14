@@ -53,6 +53,7 @@
                                 <br><h3>{{DB::table('users')->where('id',$feedback->author_id)->value('name', 'last_name')}}</h3>
                             @endif
                             <br>{{ $feedback->message }}
+                            <br><h4>Karma: {{$feedback->karma}}</h4>
                         @endif
                     @endforeach
                 </li>
