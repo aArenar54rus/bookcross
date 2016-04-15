@@ -54,7 +54,6 @@ class FeedbacksController extends Controller
         }
 
         if (DB::table('feedbacks')->where('author_id', Auth::user()->id)->where('user_id',$userId)->value('author_id') == Auth::user()->id){
-       /* if (Feedback::where('author_id', Auth::user()->id)) /*or (Feedback::find(author_id) == Auth::user()->id)*/
             return view('errors.505');
         } else{
             $user->save();
