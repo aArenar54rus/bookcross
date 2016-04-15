@@ -18,30 +18,33 @@ class UploadController extends Controller {
 
     public function upload(Request $request)
     {
-
         $file = $request->file('image');
         if (Input::hasFile('image')) {
             $destinationPath = '/storage/avatars/';
             /*$file->encode('jpg');*/
             $extension = $file->getClientOriginalExtension(); //получение расширение файла
             $size = $file->getSize();
+            echo ($size);
+            if ($size <= 41943040) {
+                $fileName = Auth::user()->id ./*'_'.rand(11111, 99999) . */
+                    '.' . $extension;
+                $file->move(base_path() . $destinationPath, $fileName);
 
-            $fileName = Auth::user()->id ./*'_'.rand(11111, 99999) . */
-                '.' . $extension;
-            $file->move(base_path() . $destinationPath, $fileName);
-
-            if (DB::table('photos')->where('user_id', Auth::user()->id)->value('user_id') == Auth::user()->id) {
-            } else {
-                $photos = new Photo(); //обращается к контроллеру???
-                $photos->user_id = Auth::user()->id;
-                $photos->url = 'storage/avatars/' . $fileName; //ссылки на картинки
-                $photos->main = 1;
-                $photos->save();
+                if (DB::table('photos')->where('user_id', Auth::user()->id)->value('user_id') == Auth::user()->id) {
+                } else {
+                    $photos = new Photo(); //обращается к контроллеру???
+                    $photos->user_id = Auth::user()->id;
+                    $photos->url = 'storage/avatars/' . $fileName; //ссылки на картинки
+                    $photos->main = 1;
+                    $photos->save();
+                }
+                return view('home');
             }
-            return view('home');
+            else {
+                return view('errors.bigFile');
+            }
         }
         else {
-            echo ($file);
             return view('errors.noUploadFile');
         }
 
