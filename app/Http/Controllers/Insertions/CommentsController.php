@@ -36,7 +36,7 @@ class CommentsController extends Controller
 
         $comment->save();
 
-        return 1;//redirect()->action('Insertions\PostsController@show');
+        return view('posts.show', ['show' => $postId]);
     }
 
     /**

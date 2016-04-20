@@ -17,18 +17,20 @@
                                         <p>{{$post->description}} </p>
                                         <p><a href="{{ url('/posts') }}" class="more-link">Back </a></p>
                                 </li>
+                                @foreach(\App\Models\Comment::all() as $comment)
+                                        <li>
+                                        <br>{{ $comment->author_id }}{{ $comment->message }}
+                                        </li>
+                                @endforeach
+                                <li>
+                                        <form action="{{$post->id}}/comments" method="POST">
+                                                <br>Add comment:<br>
+                                                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                                                <textarea type="comment" name="message"></textarea><br>
+                                                <input type="submit" value="Send" /><br>
+                                        </form>
+                                </li>
                         </ul>
                 </article>
         </section>
-
-        @foreach(\App\Models\Comment::all() as $comment)
-        <br>{{ $comment->author_id }}{{ $comment->message }}
-        @endforeach
-        <form action="{{$post->id}}/comments" method="POST">
-                <br>Добавить комментарий:<br>
-                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                <textarea type="comment" name="message"></textarea><br>
-                <input type="submit" value="Отправить" /><br>
-        </form>
-
 @endsection
