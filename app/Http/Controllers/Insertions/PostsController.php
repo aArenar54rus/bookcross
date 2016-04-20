@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Models\Insertion;
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
+use Illuminate\Support\Facades\DB;
 class PostsController extends Controller
 {
     public function __construct() {
@@ -53,7 +54,7 @@ class PostsController extends Controller
         $photos= new Photo();
         $photos->user_id = Auth::user()->id;
         $photos->insertion_id = $post->id;
-        $photos->url = '/storage/insertion/'.$uploader; //?????? ?? ????????
+        $photos->url = '/storage/insertions/'.$uploader; //?????? ?? ????????
         $photos->main = 1;
         $photos->save();
         return redirect()->action('Insertions\PostsController@index');

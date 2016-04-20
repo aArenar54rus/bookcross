@@ -21,13 +21,10 @@ class UploadController extends Controller {
         $file = $request->file('image');
         if (Input::hasFile('image')) {
             $destinationPath = '/storage/avatars/';
-            /*$file->encode('jpg');*/
-            $extension = $file->getClientOriginalExtension(); //получение расширение файла
             $size = $file->getSize();
-            echo ($size);
+            
             if ($size <= 41943040) {
-                $fileName = Auth::user()->id ./*'_'.rand(11111, 99999) . */
-                    '.' . $extension;
+                $fileName = Auth::user()->id . '.' . 'jpg';
                 $file->move(base_path() . $destinationPath, $fileName);
 
                 if (DB::table('photos')->where('user_id', Auth::user()->id)->value('user_id') == Auth::user()->id) {

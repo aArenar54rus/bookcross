@@ -208,9 +208,57 @@ a {
 .avatar_size img{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;
-  width:200px;
-  max-height: 500px;
+  max-width:  200px;
+  max-height: 100px;
 }
+
+/*================================================
+    Gallery
+================================================*/
+
+#gallery1 {
+  position: relative;
+  top: 25px;
+  padding-right: 500px;
+  padding-top: 100px;
+  border-top-width: 100px;
+  -moz-user-select: none; user-select: none;
+}
+
+#gallery1 img {
+  position: absolute;
+  top: 25%;
+  left: 17.5%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -moz-user-select: none; user-select: none;
+  cursor: zoom-in;
+}
+#gallery1 img:nth-child(4n-2) {left: 65%;}
+#gallery1 img:nth-child(4n-1) {left: 100%;}
+
+#gallery1 img:focus {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 31;
+  max-width: 80%;
+  max-height: 80%;
+  outline: none;
+  pointer-events: none;
+}
+
+#gallery1 img:focus ~ div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background: rgba(240,240,240,.9);
+  cursor: zoom-out;
+}
+
 /*================================================
     End functions of MASTER BLASTER
 ================================================*/

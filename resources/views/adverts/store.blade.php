@@ -1,49 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-    {!! Form::open(array('action' => 'Insertions\AdvertsController@store', 'method' => 'post','files'=>true, 'class' => 'form-horizontal' )) !!}
+    {!! Form::open(array('action' => 'Insertions\AdvertsController@store', 'method' => 'POST', 'files'=>true)) !!}
 
     {!! Form::label('title', 'Title', array('class' => 'col-md-4 control-label')) !!}
 
-    <div class="col-md-6">
-        {!! Form::text('title', 'Название объявления', array('class' => 'form-control')) !!}
-    </div>
+    <br>{!! Form::text('title', 'Название объявления', array('class' => 'form-control')) !!}
 
+    <br>{!! Form::label('description', 'Description', array('class' => 'col-md-4 control-label')) !!}
 
-    {!! Form::label('description', 'description', array('class' => 'col-md-4 control-label')) !!}
+    <br>{!! Form::text('description', 'Описание', array('class' => 'form-control')) !!}
 
-    <div class="col-md-6">
-        {!! Form::text('description', 'Описание', array('class' => 'form-control')) !!}
-    </div>
+    <br>{!! Form::label('genre', 'Genre', array('class' => 'col-md-4 control-label')) !!}
 
+    <br>{!! Form::text('genre', 'Жанр книги', array('class' => 'form-control')) !!}
 
-    {!! Form::label('genre', 'Genre', array('class' => 'col-md-4 control-label')) !!}
+    <br>{!! Form::label('publishing_house', 'Publishing house', array('class' => 'col-md-4 control-label')) !!}
 
-    <div class="col-md-6">
-        {!! Form::text('genre', 'Жанр книги', array('class' => 'form-control')) !!}
-    </div>
+    <br>{!! Form::text('publishing_house', 'Издательство', array('class' => 'form-control')) !!}
 
-    {!! Form::label('publishing_house', 'Publishing_house', array('class' => 'col-md-4 control-label')) !!}
+    <br>{!! Form::label('year', 'Year', array('class' => 'col-md-4 control-label')) !!}
 
-    <div class="col-md-6">
-        {!! Form::text('publishing_house', 'Издательство', array('class' => 'form-control')) !!}
-    </div>
+    <br>{!! Form::text('year', 'Год издания', array('class' => 'form-control')) !!}
 
-    {!! Form::label('year', 'Year', array('class' => 'col-md-4 control-label')) !!}
+    <br>Upload picture:
 
-    <div class="col-md-6">
-        {!! Form::text('year', 'Год издания', array('class' => 'form-control')) !!}
-    </div>
+    {{--{!! Form::file('pic') !!}--}}
+    <br>{!! Form::file('images[]', array('multiple'=>true)) !!}
 
-    Upload picture:<br>
+    <br>{!! Form::button('Create new', array('class' => 'btn btn-primary', 'type' => 'submit')) !!}
 
-    {!! Form::file('pic') !!}
-
-
-    <div class="form-group">
-        <div class="col-md-6 col-md-offset-4">
-            {!! Form::button('Create new', array('class' => 'btn btn-primary', 'type' => 'submit')) !!}
-        </div>
-    </div>
     {!! Form::close() !!}
 @endsection

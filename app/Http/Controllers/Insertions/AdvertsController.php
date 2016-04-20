@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\Models\Advert;
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class AdvertsController extends Controller
 {
@@ -57,9 +59,9 @@ class AdvertsController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('pic');
+        /*$file = $request->file('pic');*/
         $uploader = new FileUpload();
-        $uploader = $uploader->uploadPic($file, 'adverts/');
+        $uploader = $uploader->multiple_uploadPic(/*$file, */'adverts/');
 
         $advert = new Advert();
         $advert->author_id = Auth::user()->id;
@@ -70,12 +72,12 @@ class AdvertsController extends Controller
         $advert->publishing_house = $request->publishing_house;
         $advert->save();
 
-        $photos= new Photo();
-        /*$photos->user_id = Auth::user()->id;*/
+/*        $photos = new Photo();
+        /*$photos->user_id = Auth::user()->id;
         $photos->advert_id = $advert->id;
         $photos->url = '/storage/adverts/'.$uploader; //ссылки на картинки
         $photos->main = 1;
-        $photos->save();
+        $photos->save();*/
 
         return redirect()->action('Insertions\AdvertsController@index');
     }

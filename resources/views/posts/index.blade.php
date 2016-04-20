@@ -18,7 +18,7 @@
                     @foreach($posts as $post)
                     <h2><a href="{{ url('/posts/'. $post->id) }}">{{$post->title}}</a></h2>
                     <p class="meta">On {{ date("d.m.Y", strtotime($post->created_at)) }} | By: <a href="{{ url('/user/'.$post->author_id) }}">{{App\User::find($post->author_id)->name}}</a></p>
-                    <img src="http://lorempixel.com/400/180/fashion/" alt="Photo">
+                    <div class="avatar_size">{!! HTML::image(DB::table('photos')->where('insertion_id', $post->id)->value('url')) !!}</div>
                     <div class="size_text"><p>{{$post->description}} </p></div>
                     <p><a href="{{ url('/posts/'. $post->id) }}" class="more-link">Reading continued </a></p>
                         @if(Auth::check())
