@@ -19,7 +19,8 @@
                                 </li>
                                 @foreach(\App\Models\Comment::all() as $comment)
                                         <li>
-                                        <br>{{ $comment->author_id }}{{ $comment->message }}
+                                        <br><h4>{!! DB::table('users')->where('id', $comment->author_id)->value('name')!!}</h4>
+                                                <br>{{ $comment->message }}
                                         </li>
                                 @endforeach
                                 <li>

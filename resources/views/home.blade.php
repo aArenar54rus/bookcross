@@ -13,7 +13,7 @@
 
                             <article role="main" class="clearfix">
                                 <div class="post">
-                                    <h2>Welcome!</h2>
+                                    <h2>{{ echo trans('messages.welcome'); }}</h2>
                                     <h1>You are logged in!</h1>
                                     <p>Now you can:</p>
                                     <ul>

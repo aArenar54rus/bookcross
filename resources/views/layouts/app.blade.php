@@ -8,8 +8,16 @@
     <title>Bookcrossing</title>
 
     <link rel="stylesheet" media="all" href="{{ url('public/css/main.css')}}">
-    <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" >
+    <link href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" >
     <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
+
+    {{--Bootstrap3--}}
+    <link rel="stylesheet" media="all" href="{{ url('public/css/bootstrap.css')}}">
+    <link rel="stylesheet" media="all" href="{{ url('public/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" media="all" href="{{ url('public/css/bootstrap-theme.css')}}">
+    <link rel="stylesheet" media="all" href="{{ url('public/css/bootstrap-theme.min.css')}}">
+    {{--------------}}
+
 
 </head>
 <body>
@@ -29,11 +37,10 @@
 
                     @else
 
-                        <li><a href="{{ url('/user/'. \Illuminate\Support\Facades\Auth::user()->id) }}" class="link">Profile</a></li>
                         <li class="dropdown">
                             <a href="#" class="link" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}</a>
                             <ul class="submenu" role="menu">
-                                <li><a href="{{ url('/dashboard') }}">User page</a></li>
+                                <li><a href="{{ url('/user/'. \Illuminate\Support\Facades\Auth::user()->id) }}">User page</a></li>
                                 <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                                 <li><a href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
