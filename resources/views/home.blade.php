@@ -13,7 +13,7 @@
 
                             <article role="main" class="clearfix">
                                 <div class="post">
-                                    <h2>{{ echo trans('messages.welcome'); }}</h2>
+                                    <h2>{{Lang::get('messages.welcome')}}</h2>
                                     <h1>You are logged in!</h1>
                                     <p>Now you can:</p>
                                     <ul>
@@ -33,9 +33,9 @@
                             </hgroup>
                         <article role="main" class="clearfix">
                             <div class="post">
-                                <h2>Welcome</h2>
-                                <p>In this site you and your friends can buy, sell or exchange your favorite books, magazines or etc.</p>
-                                <a href="page.html" class="button left">Learn more <span class="icon">:</span></a>
+                                <h2>{{Lang::get('messages.welcome')}}</h2>
+                                <p>{{Lang::get('messages.inThisSite')}}</p>
+                                <a href="page.html" class="button left">{{Lang::get('messages.learnMore')}}<span class="icon">:</span></a>
                             </div>
                             <aside role="complementary">
                                 <a href="#demo-url"><img src="http://lorempixel.com/420/290/nature/" alt="Lorem ipsum dolor..."></a>

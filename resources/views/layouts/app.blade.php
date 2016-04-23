@@ -11,14 +11,6 @@
     <link href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" >
     <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
 
-    {{--Bootstrap3--}}
-    <link rel="stylesheet" media="all" href="{{ url('public/css/bootstrap.css')}}">
-    <link rel="stylesheet" media="all" href="{{ url('public/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" media="all" href="{{ url('public/css/bootstrap-theme.css')}}">
-    <link rel="stylesheet" media="all" href="{{ url('public/css/bootstrap-theme.min.css')}}">
-    {{--------------}}
-
-
 </head>
 <body>
     <header class="clearfix">
@@ -26,27 +18,23 @@
             <a id="logo" href="{{ url('/') }}">Bookcrossing</a>
             <nav class="clearfix">
                 <ul class="topmenu">
-                    <li><a href="{{ url('/') }}" class="link">Home</a></li>
-                    <li><a href="{{ url('/posts') }}" class="link">Blog</a></li>
-                    <li><a href="{{ url('/adverts') }}" class="link">Adverts</a></li>
-                    <li><a href="{{ url('/about') }}" class="link">About us</a></li>
+                    <li><a href="{{ url('/') }}" class="link">{{Lang::get('messages.home')}}</a></li>
+                    <li><a href="{{ url('/posts') }}" class="link">{{Lang::get('messages.blog')}}</a></li>
+                    <li><a href="{{ url('/adverts') }}" class="link">{{Lang::get('messages.adverts')}}</a></li>
+                    <li><a href="{{ url('/about') }}" class="link">{{Lang::get('messages.aboutUs')}}</a></li>
                     @if (Auth::guest())
-
-                        <li><a href="{{ url('/login') }}" class="link">Login</a></li>
-                        <li><a href="{{ url('/register') }}" class="link">Register</a></li>
-
+                        <li><a href="{{ url('/login') }}" class="link">{{Lang::get('messages.login')}}</a></li>
+                        <li><a href="{{ url('/register') }}" class="link">{{Lang::get('messages.register')}}</a></li>
                     @else
-
                         <li class="dropdown">
                             <a href="#" class="link" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}</a>
                             <ul class="submenu" role="menu">
                                 <li><a href="{{ url('/user/'. \Illuminate\Support\Facades\Auth::user()->id) }}">User page</a></li>
-                                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                                <li><a href="{{ url('/logout') }}">Logout</a></li>
+                                <li><a href="{{ url('/dashboard') }}">{{Lang::get('messages.dashboard')}}</a></li>
+                                <li><a href="{{ url('/logout') }}">{{Lang::get('messages.logout')}}</a></li>
                             </ul>
                         </li>
                     @endif
-
                     <li class="social_icons" twitter><a href="{{ url('/dashboard') }}"><div class="social_icon_sprite"></div></a></li>
                     <li class="social_icons" facebook><a href="{{ url('/dashboard') }}">F</a></li>
                     <li class="social_icons" google><a href="{{ url('/dashboard') }}">G</a></li>
@@ -58,9 +46,9 @@
     <section role="banner">
         <hgroup>
             @if (Auth::guest())
-            <h2>Welcome to the new site for buy and exchange books and ideas.</h2>
+            <h2>{{Lang::get('messages.mainWelcome')}}</h2>
             @else
-                <h2>News: new news.</h2>
+                <h2>{{Lang::get('messages.news')}}</h2>
             @endif
         </hgroup>
     </section>

@@ -2,9 +2,9 @@
 
 @section('content')
 
-<strong>Name:</strong> {{ $name }} <br>
-<strong>Email address:</strong> {{ $email }} <br>
-<strong>Message:</strong><br>
+<strong>:</strong> {{ $name }} <br>
+<strong>{{Lang::get('messages.email')}}:</strong> {{ $email }} <br>
+<strong>{{Lang::get('messages.message')}}:</strong><br>
 {{ $msg }}
 
 @endsection

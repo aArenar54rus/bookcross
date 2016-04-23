@@ -10,12 +10,12 @@
                         <ul class="post-list">
                                 <li>
                                         <h2>{{$post->title}}</h2>
-                                        <p class="meta">On {{ date("d.m.Y", strtotime($post->created_at)) }} | By: <a href="{{ url('/user/'.$post->author_id) }}">{{App\User::find($post->author_id)->name}}</a></p>
+                                        <p class="meta">On {{ date("d.m.Y", strtotime($post->created_at)) }} | {{Lang::get('messages.by')}}: <a href="{{ url('/user/'.$post->author_id) }}">{{App\User::find($post->author_id)->name}}</a></p>
                                         <div class ="avatar_size">
                                                 <img src="{!! URL::asset(DB::table('photos')->where('insertion_id', $post->id)->where('main', 1)->value('url'))!!}" alt="" tabindex="0" />
                                         </div>
                                         <p>{{$post->description}} </p>
-                                        <p><a href="{{ url('/posts') }}" class="more-link">Back </a></p>
+                                        <p><a href="{{ url('/posts') }}" class="more-link">{{Lang::get('messages.back')}} </a></p>
                                 </li>
                                 @foreach(\App\Models\Comment::all() as $comment)
                                         <li>
@@ -25,10 +25,10 @@
                                 @endforeach
                                 <li>
                                         <form action="{{$post->id}}/comments" method="POST">
-                                                <br>Add comment:<br>
+                                                <br>{{Lang::get('messages.addComment')}}:<br>
                                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                                 <textarea type="comment" name="message"></textarea><br>
-                                                <input type="submit" value="Send" /><br>
+                                                <input type="submit" value="{{Lang::get('messages.submit')}}" /><br>
                                         </form>
                                 </li>
                         </ul>

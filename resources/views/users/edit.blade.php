@@ -5,7 +5,7 @@
     {!! Form::open(array('action' => ['UsersController@update', Auth::user()->id], 'method' => 'put', 'class' => 'form-horizontal' )) !!}
 
 
-    {!! Form::label('name', 'Name: ', array('class' => 'col-md-4 control-label')) !!}
+    {!! Form::label('name', 'Name:' , array('class' => 'col-md-4 control-label')) !!}
 
     <div class="col-md-6">
         {!! Form::text('name', $user->name, array('class' => 'form-control')) !!}

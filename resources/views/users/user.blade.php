@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--{{$user}}--}}
-    {{--<img src="{{App\Models\Photo::where('user_id', $user->id)->first()->url}}" alt="">--}}
-    {{--<div class="avatar_size"><img src="http://localhost/laravel.bookcross/storage/avatars/1.jpg" alt=""></div>--}}
         <aside role="complementary">
             <h2>{{$user->name}} {{$user->last_name}}</h2>
             <div class="avatar_size">
@@ -14,25 +11,26 @@
                 @endif
             </div>
             <br>
+
             @if (($user->id)==(Auth::user()->id))
-                Add new avatar: <a href="{{ url('/upload') }}" role="button">tap here</a>.
+                <button><a href="{{ url('/upload') }}" role="button">{{Lang::get('messages.addAvatar')}}</a>.</button>
             @endif
-            <br><h2>Personal karma:</h2>
+            <br><h2>{{Lang::get('messages.karma')}}:</h2>
             <div>
                 {{$user->karma}}
             </div>
 
-            <br><h2>Sex:</h2>
+            <br><h2>{{Lang::get('messages.sex')}}:</h2>
             <div>
                 {{$user->sex}}
             </div>
 
-            <br><h2>Country:</h2>
+            <br><h2>{{Lang::get('messages.country')}}:</h2>
             <div>
                 {{$user->country}}
             </div>
 
-            <br><h2>Tel.:</h2>
+            <br><h2>{{Lang::get('messages.phone')}}:</h2>
             <div>
                 {{$user->phone}}
             </div>
@@ -41,19 +39,19 @@
             <ul class="post-list">
                 <li>
                     @if (($user->id)!=(Auth::user()->id))
-                        Would you like to leave a feedback about this person?
+                        {{Lang::get('messages.addFeedback')}}
                         @include('users.feedback')
                     @endif
                 </li>
                 <li>
-                    <h2>Feedbacks: </h2>
+                    <h2>{{Lang::get('messages.feedbacks')}}: </h2>
                     @foreach(\App\Models\Feedback::all() as $feedback)
                         @if ($feedback->user_id == $user->id)
                             @if($feedback->author_id == DB::table('users')->where('id',$feedback->author_id)->value('id'))
                                 <br><h3>{{DB::table('users')->where('id',$feedback->author_id)->value('name', 'last_name')}}</h3>
                             @endif
                             <br>{{ $feedback->message }}
-                            <br><h4>Karma: {{$feedback->karma}}</h4>
+                            <br><h4>{{Lang::get('messages.karma')}}: {{$feedback->karma}}</h4>
                         @endif
                     @endforeach
                 </li>
