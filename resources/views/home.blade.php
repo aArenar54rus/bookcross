@@ -48,4 +48,8 @@
         </div>
     </div>
 </div>
+
+    @can('admin_watch')
+        YOU ARE ADMIN!
+    @endcan
 @endsection

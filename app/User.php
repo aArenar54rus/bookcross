@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\Role;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -25,7 +27,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Posts','author_id');
     }
-
+    //role for user
     public function roles()
     {
         return $this->belongsToMany(Role::class);

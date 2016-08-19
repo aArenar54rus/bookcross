@@ -161,11 +161,18 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /*
-         * Admin Panel Service Providers...
+         * SleepingOwl Service Provider
          */
+        //SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
 
-  /*      SleepingOwl\Admin\AdminServiceProvider::class,*/
+        /*
+         * Application Service Providers...
+         */
+        //App\Providers\AppServiceProvider::class,
 
+
+        //FrozenNode Admin
+        'Frozennode\Administrator\AdministratorServiceProvider',
     ],
 
     /*
