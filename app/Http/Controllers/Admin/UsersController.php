@@ -15,7 +15,7 @@ class UsersController extends Controller
     {
         $users = User::all();
         $roles = Role::name;
-        $
+        $banners =
         return view ('admin\users', ['users' => $users], ['roles' => $roles]);
     }
 
