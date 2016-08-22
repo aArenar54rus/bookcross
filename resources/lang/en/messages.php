@@ -13,7 +13,7 @@ return [
     'dropUs'        => 'Drop us a line',
     'submit'        => 'Submit',
 
-    /*Main page*/
+    //Main page
     'home'          => 'Home',
     'blog'          => 'Blog',
     'adverts'       => 'Adverts',
@@ -25,15 +25,15 @@ return [
     'mainWelcome'   => 'Welcome to the new site for buy and exchange books and ideas.',
     'news'          => 'News: new news!',
 
-    /*Feedbacks*/
+    //Feedbacks
     'good'          => 'Good',
     'bad'           => 'Bad',
 
-    /*Upload Avatar Page*/
+    //Upload Avatar Page
     'uploadAvatar'  => 'Upload new avatar image',
     'formatAvatar'  => 'Max size is 5 megabyte. Format - .jpg or .png.',
 
-    /*Personal page*/
+    //Personal page
     'addAvatar'     => 'Upload new avatar',
     'karma'         => 'Karma',
     'sex'           => 'Sex',
@@ -42,7 +42,7 @@ return [
     'feedbacks'     => 'Feedbacks',
     'addFeedback'   => 'Would you like to add a feedback about this person?',
 
-    /*total for posts and ads*/
+    //total for posts and ads
     'back'          => 'Back',
     'on'            => 'On',
     'by'            => 'By',
@@ -51,25 +51,31 @@ return [
     'createNew'     => 'Create new',
     'title'         => 'Title',
 
-    /*for adverts*/
+    //for adverts
     'search'        => 'Search',
     'genre'         => 'Genre',
     'publishingHouse'=>'Publishing house',
     'delAdvert'     => 'Delete advert',
 
-    /*for posts*/
+    //for posts
     'delInsertion'  => 'Delete insertion',
 
-    /*Error 401*/
+    //Error 401
     'errorLogin'    => 'Sorry, but you are not login!',
 
-    /*Error 404*/
+    //Error 404
     'errorNotFound' => 'Sorry, but this page not found!',
 
-    /*Error 505*/
-    'errorAddReview'=> 'Простите, но вы уже оставляли свой отзыв!',
+    //Error 505
+    'errorAddReview'=> 'Sorry, but you\'ve already add a review.',
 
-    /*Ошибка большого файла*/
-    'errorBigFile'  => 'Простите, но это файл слишком большой!'
+    //Error Big File
+    'errorBigFile'  => 'Sorry, but this file is too big!',
+
+    //Admin Panel - menu
+    'users'         => 'Users',
+    'rolesControl'  => 'Roles control',
+    'permissionsControl'=>'Permissions control',
+    'exit'          => 'Exit'
 
 ];

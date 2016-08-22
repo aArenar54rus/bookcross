@@ -38,16 +38,21 @@ Route::group(['middleware' => 'web'], function () {
     });
     Route::post('upload', 'UploadController@upload');
 
+    //admin panel
+    Route::get('/admin', 'Admin\AdminController@index');
+    Route::get('/admin/users', 'Admin\AdminController@users');
+
+    Route::resource('/admin/roles', 'Admin\RolesController');
+    Route::resource('/admin/permissions', 'Admin\PermissionsController');
 });
+
 Route::post('about', 'EmailController@showForm');
 Route::post('about', 'EmailController@handleFormPost');
+
 
 Route::get('setlocale/{locale}', function ($locale) {
 
     if (in_array($locale, \Config::get('app.locales'))) {   # ѕровер€ем, что у пользовател€ выбран доступный €зык
         Session::put('locale', $locale);                    # » устанавливаем его в сессии под именем locale
     }
-
-   /* return redirect()->back();                              # –едиректим его <s>взад</s> на ту же страницу*/
-
 });

@@ -72,13 +72,6 @@ class AdvertsController extends Controller
         $advert->publishing_house = $request->publishing_house;
         $advert->save();
 
-/*        $photos = new Photo();
-        /*$photos->user_id = Auth::user()->id;
-        $photos->advert_id = $advert->id;
-        $photos->url = '/storage/adverts/'.$uploader; //ссылки на картинки
-        $photos->main = 1;
-        $photos->save();*/
-
         return redirect()->action('Insertions\AdvertsController@index');
     }
 

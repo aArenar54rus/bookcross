@@ -169,10 +169,6 @@ return [
          * Application Service Providers...
          */
         //App\Providers\AppServiceProvider::class,
-
-
-        //FrozenNode Admin
-        'Frozennode\Administrator\AdministratorServiceProvider',
     ],
 
     /*
