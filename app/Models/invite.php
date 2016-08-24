@@ -38,14 +38,12 @@ class invite extends Model
         return $this->belongsTo('App\User', 'inviter_id');
     }
 
-
     //Связываем модель инвайта с моделью пользователя, получившего приглашение
     //Может пригодиться, если захотим показывать, кто кого пригласил
     //Связь через поле invitee_id
     public function invitee() {
         return $this->belongsTo('App\User', 'invitee_id');
     }
-
 
     //Используем метод boot() чтобы подключиться к событию создания модели, будем генерировать код инвайта сразу при создании
     protected static function boot() {
