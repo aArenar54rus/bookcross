@@ -40,11 +40,11 @@ Route::group(['middleware' => 'web'], function () {
 
     //admin panel
     Route::get('/admin', 'Admin\AdminController@index');
-    Route::get('/admin/users', 'Admin\AdminController@users');
 
-    Route::resource('/admin/users', 'Admin\UsersController');
+    Route::resource('/admin/users', 'Admin\AdminUsersController');
     Route::resource('/admin/roles', 'Admin\RolesController');
     Route::resource('/admin/permissions', 'Admin\PermissionsController');
+
 });
 
 Route::post('about', 'EmailController@showForm');

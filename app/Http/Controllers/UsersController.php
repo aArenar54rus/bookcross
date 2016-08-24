@@ -12,7 +12,7 @@ use App\User;
 class UsersController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth', ['except' => [    //����������� ������� ��� ��������������������� ������������
+        $this->middleware('auth', ['except' => [
             'index',
             'show',
         ]]);
