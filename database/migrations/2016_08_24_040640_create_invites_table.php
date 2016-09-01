@@ -18,7 +18,7 @@ class CreateInvitesTable extends Migration
             $table->integer('invitee_id');
             $table->string('code');
             $table->string('email');
-            $table->timestamp('claimed')->nullable();
+            $table->boolean('claimed')->nullable();
             $table->timestamp('date_expired')->nullable();
             $table->timestamps();
         });

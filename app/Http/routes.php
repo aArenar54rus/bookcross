@@ -38,6 +38,10 @@ Route::group(['middleware' => 'web'], function () {
     });
     Route::post('upload', 'UploadController@upload');
 
+    //invite
+    Route::resource('invite', 'InvitesController');
+
+
     //admin panel
     Route::get('/admin', 'Admin\AdminController@index');
 

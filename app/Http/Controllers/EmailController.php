@@ -49,30 +49,4 @@ class EmailController extends Controller
             return Redirect::to('/')->with('message', 'Thank you!');
         }
     }
-   /* public function send(Request $request){
-        /*$name = $request->input('name');
-        $email = $request->input('email');
-        $message = $request->input('message');
-        $name = Input::get('name');
-        $email = Input::get('email');
-        $message = Input::get('message');
-
-        ['title' => $name, 'email' => $email, 'content' => $content]
-
-        Mail::send('about',array(
-            'name' => $name,
-            'email' => $email,
-            'user_message' => $message
-        ) , function ($message)
-        {
-
-            $message->from('arenar93@yandex.ru');
-
-            $message->to('arenar54rus@gmail.com', 'Administrator');
-
-        });
-
-        return response()->json(['message' => 'Request completed']);
-        return \Redirect::route('about')->with('message', 'Thanks for contacting us!');
-    }*/
 }

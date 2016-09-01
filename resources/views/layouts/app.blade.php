@@ -44,7 +44,7 @@
                         <li class="dropdown">
                             <a href="#" class="link" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}</a>
                             <ul class="submenu" role="menu">
-                                <li><a href="{{ url('/user/'. \Illuminate\Support\Facades\Auth::user()->id) }}">User page</a></li>
+                                <li>0</li>
                                 <li><a href="{{ url('/dashboard') }}">{{Lang::get('messages.dashboard')}}</a></li>
                                 <li><a href="{{ url('/logout') }}">{{Lang::get('messages.logout')}}</a></li>
                             </ul>
