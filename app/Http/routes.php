@@ -40,7 +40,7 @@ Route::group(['middleware' => 'web'], function () {
 
     //invite
     Route::resource('invite', 'InvitesController');
-
+    route::resource('/auth/activate', 'InviteRegisterController' );
 
     //admin panel
     Route::get('/admin', 'Admin\AdminController@index');

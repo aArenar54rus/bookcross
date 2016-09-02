@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use App\Models\Invite;
 use App\Http\Requests;
@@ -28,7 +29,7 @@ class InvitesController extends Controller
         $invite->date_expired = time() + (24 * 60 * 60);
         $invite->save();
 
-        $url = url('/').'/auth/activate?code='.$code;
+        $url = url('/').'/auth/activate?code='.$code.'&email='.$email;
 
         $mailSend = array(
             'from'=>'bookcrossing@administrator.com',
